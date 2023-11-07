@@ -33,12 +33,14 @@ public class AbrigoService {
     }
 
     public void cadastrarAbrigo() throws IOException, InterruptedException {
+        Scanner sc = new Scanner(System.in);
+
         System.out.println("Digite o nome do abrigo:");
-        String nome = new Scanner(System.in).nextLine();
+        String nome = sc.nextLine();
         System.out.println("Digite o telefone do abrigo:");
-        String telefone = new Scanner(System.in).nextLine();
+        String telefone = sc.nextLine();
         System.out.println("Digite o email do abrigo:");
-        String email = new Scanner(System.in).nextLine();
+        String email = sc.nextLine();
 
         Abrigo abrigo = new Abrigo(nome, telefone, email);
 
@@ -53,6 +55,8 @@ public class AbrigoService {
             System.out.println("Erro ao cadastrar o abrigo:");
             System.out.println(responseBody);
         }
+
+        sc.close();
     }
 
     private void mostrarAbrigos(List<Abrigo> abrigos) {

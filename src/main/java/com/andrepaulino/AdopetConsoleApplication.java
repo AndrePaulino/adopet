@@ -6,6 +6,7 @@ public class AdopetConsoleApplication {
 
     public static void main(String[] args) {
         CommandExecutor executor = new CommandExecutor();
+        Scanner sc = new Scanner(System.in);
 
         System.out.println("##### BOAS VINDAS AO SISTEMA ADOPET CONSOLE #####");
         try {
@@ -13,7 +14,7 @@ public class AdopetConsoleApplication {
             while (opcaoEscolhida != 5) {
                 exibirMenu();
 
-                String textoDigitado = new Scanner(System.in).nextLine();
+                String textoDigitado = sc.nextLine();
                 opcaoEscolhida = Integer.parseInt(textoDigitado);
 
                 switch (opcaoEscolhida) {
@@ -28,6 +29,8 @@ public class AdopetConsoleApplication {
             System.out.println("Finalizando o programa...");
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            sc.close();
         }
     }
 
